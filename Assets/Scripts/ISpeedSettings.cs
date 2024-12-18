@@ -6,5 +6,6 @@ namespace Kruty1918
         float PlayerSpeed { get; }
         float RunSpeedMultiplier { get; }
         float DashSpeed { get; } // Швидкість дашу
+        float MaxAirSpeed { get; }
     }
 }
