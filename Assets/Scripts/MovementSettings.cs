@@ -13,6 +13,7 @@ namespace Kruty1918
         [SerializeField] private float dashSpeed = 2;
         [SerializeField] private float playerSmooth = 0.35f;
         [SerializeField] private float airControlFactor = 0.5f;
+        [SerializeField] private float maxAirSpeed = 3;
         [SerializeField] private bool freezeZ = true;
 
         public float PlayerSpeed => playerSpeed;
@@ -24,5 +25,6 @@ namespace Kruty1918
         public float AirControlFactor => airControlFactor;
         public float RunInOutSmooth => runInOutSmooth;
         public bool FreezeZ => freezeZ;
+        public float MaxAirSpeed => maxAirSpeed;
     }
 }

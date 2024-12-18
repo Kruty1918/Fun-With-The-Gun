@@ -39,15 +39,18 @@ namespace Kruty1918
         {
             float airControlFactor = playerSettings.SmoothnessSettings.AirControlFactor;
 
-            // Зберігаємо поточну горизонтальну швидкість
+            // Розраховуємо поточну горизонтальну швидкість
             Vector3 horizontalVelocity = new Vector3(velocity.x, 0, velocity.z);
 
-            // Обчислюємо вплив введення
-            Vector3 inputVelocity = new Vector3(moveDirection.x, 0, moveDirection.z) * playerSettings.SpeedSettings.PlayerSpeed;
+            // Обчислюємо бажану зміну швидкості на основі введення
+            Vector3 desiredVelocity = new Vector3(moveDirection.x, 0, moveDirection.z) * playerSettings.SpeedSettings.PlayerSpeed;
 
-            // Плавно додаємо швидкість введення (без різкого гальмування)
-            horizontalVelocity += inputVelocity * airControlFactor * Time.fixedDeltaTime;
+            // Лише додаємо бажану зміну швидкості, без зменшення існуючої
+            horizontalVelocity += desiredVelocity * airControlFactor * Time.fixedDeltaTime;
 
+            // Обмежуємо горизонтальну швидкість до максимальної
+            float maxAirSpeed = playerSettings.SpeedSettings.MaxAirSpeed;
+            horizontalVelocity = Vector3.ClampMagnitude(horizontalVelocity, maxAirSpeed);
 
             // Оновлюємо горизонтальні складові швидкості
             velocity.x = horizontalVelocity.x;
