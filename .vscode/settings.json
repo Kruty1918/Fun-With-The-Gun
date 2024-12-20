@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Fun-With-The-Gun.sln"
+    "dotnet.defaultSolution": "Fun-With-The-Gun.sln",
+    "cSpell.words": [
+        "Gameplay"
+    ]
 }
