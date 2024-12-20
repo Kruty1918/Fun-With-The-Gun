@@ -25,7 +25,7 @@ namespace Kruty1918
             currentFOV = initialFOV;
         }
 
-        public override void SetCameraZoom(ISpeedSettings speedSettings, MovementData movementData)
+        public override void SetCameraZoom(MovementData movementData)
         {
             // Якщо швидкість перевищує поріг
             if (movementData.CurrentSpeed >= thresholdIn)
